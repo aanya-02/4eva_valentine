@@ -1,0 +1,32 @@
+[
+  {
+    "q": "What’s the name of my favourite superhero?",
+    "options": ["Daredevil", "Deadpool", "Captain America", "Spider-Man"],
+    "answer": "Deadpool"
+  },
+  {
+    "q": "What was the word you mispronounced when we first started going out?",
+    "options": ["Humajo", "Humajo (but with confidence)", "Humajo…? (question mark)", "Humaju"],
+    "answer": "Humajo"
+  },
+  {
+    "q": "When was our first kiss?",
+    "options": ["16/07/2025", "07/17/2025", "17/07/2025", "18/07/2025"],
+    "answer": "17/07/2025"
+  },
+  {
+    "q": "Where was our first date?",
+    "options": ["KFC in Brookefields Mall", "KFC in Forum Mall", "McDonald’s in Brookefields Mall", "KFC (drive-thru)"],
+    "answer": "KFC in Brookefields Mall"
+  },
+  {
+    "q": "What was I almost named as a baby?",
+    "options": ["Anshita", "Anushka", "Anshika", "Anika"],
+    "answer": "Anshika"
+  },
+  {
+    "q": "What’s my shoe size?",
+    "options": ["UK: 6", "EU: 41", "UK: 8.5", "UK: 8"],
+    "answer": "UK: 8"
+  }
+]
