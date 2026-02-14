@@ -154,19 +154,19 @@ def inject_css():
         margin: 0 0 10px 0;
         line-height: 1.5;
         }
-        /* Bottom nav bar (mobile-friendly) */
-        .bottom-nav {
+        .bottom-nav{
         position: sticky;
         bottom: 0;
         z-index: 20;
-        background: rgba(255,255,255,0.92);
-        backdrop-filter: blur(8px);
-        border: 1px solid rgba(225,29,72,0.12);
-        border-radius: 18px;
-        padding: 10px 10px;
-        margin-top: 16px;
-        box-shadow: 0 -8px 24px rgba(17,24,39,0.06);
+        background: rgba(255,255,255,0.70);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(225,29,72,0.10);
+        border-radius: 16px;
+        padding: 8px 10px;
+        margin-top: 14px;
+        box-shadow: 0 -6px 18px rgba(17,24,39,0.05);
         }
+
 
 
         </style>
@@ -496,19 +496,25 @@ elif st.session_state.page == 5:
         )
 st.markdown('<div class="bottom-nav">', unsafe_allow_html=True)
 
-colL, colM, colR = st.columns([1, 2, 1])
+# Back / Next row
+colL, colR = st.columns(2)
 with colL:
-    if st.button("⬅ Back", disabled=st.session_state.page == 0):
+    if st.button("⬅ Back", disabled=st.session_state.page == 0, use_container_width=True):
         go(-1)
 with colR:
-    if st.button("Next ➡", disabled=st.session_state.page == len(PAGES) - 1):
+    if st.button("Next ➡", disabled=st.session_state.page == len(PAGES) - 1, use_container_width=True):
         go(+1)
 
-tabs = st.columns(6)
+# Tabs in 2 rows of 3 (mobile-friendly)
+row1 = st.columns(3)
+row2 = st.columns(3)
+
 for i, name in enumerate(PAGES):
-    with tabs[i]:
+    target = row1[i] if i < 3 else row2[i - 3]
+    with target:
         if st.button(name, key=f"tab_{i}", use_container_width=True):
             jump(i)
+
 
 st.markdown("</div>", unsafe_allow_html=True)
 
