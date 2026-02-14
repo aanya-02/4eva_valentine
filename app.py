@@ -44,6 +44,13 @@ def inject_css():
     st.markdown(
         """
         <style>
+        /* Force readable text on hosted theme */
+        html, body, .stApp,
+        h1, h2, h3, h4, h5, h6,
+        p, div, span, label, li {
+        color: #111827 !important;
+        }
+
         /* Background + general typography */
         .stApp {
           background: radial-gradient(circle at 10% 10%, #FFE4E6 0%, #FFF1F2 35%, #FFFFFF 120%);
