@@ -198,11 +198,11 @@ if st.session_state.last_page != st.session_state.page:
 
 def go(delta):
     st.session_state.page = max(0, min(len(PAGES) - 1, st.session_state.page + delta))
-    st.experimental_rerun()
+    st.rerun()
 
 def jump(i):
     st.session_state.page = i
-    st.experimental_rerun()
+    st.rerun()
 
 # -----------------------------
 # Load data
@@ -247,7 +247,7 @@ if not st.session_state.unlocked:
         if st.button("Unlock (if you dare)"):
             if pin_try.strip() == PIN:
                 st.session_state.unlocked = True
-                st.experimental_rerun()
+                st.rerun()
             else:
                 st.error("Nope 😭 Try again, bebi.")
 
@@ -374,7 +374,7 @@ elif st.session_state.page == 3:
             if not is_open:
                 if st.button("Open 💌", key=f"open_{i}", use_container_width=True):
                     st.session_state[f"letter_flip_{i}"] = True
-                    st.experimental_rerun()
+                    st.rerun()
             else:
                 st.markdown('<div class="card flashcard-body">', unsafe_allow_html=True)
                 for para in body:
@@ -383,7 +383,7 @@ elif st.session_state.page == 3:
 
                 if st.button("Close", key=f"close_{i}", use_container_width=True):
                     st.session_state[f"letter_flip_{i}"] = False
-                    st.experimental_rerun()
+                    st.rerun()
 
 
 # PAGE 4 — Quiz
@@ -445,12 +445,12 @@ elif st.session_state.page == 5:
         if st.button("Yes 💗"):
             st.session_state.valentine_answer = "Yes"
             st.balloons()
-            st.experimental_rerun()
+            st.rerun()
     with col2:
         if st.button("Definitely Yes 😭💘"):
             st.session_state.valentine_answer = "Definitely Yes"
             st.balloons()
-            st.experimental_rerun()
+            st.rerun()
 
     if st.session_state.valentine_answer:
         st.markdown("---")
