@@ -158,14 +158,16 @@ def inject_css():
         position: sticky;
         bottom: 0;
         z-index: 20;
-        background: rgba(255,255,255,0.70);
+        background: rgba(255,241,242,0.55);
         backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         border: 1px solid rgba(225,29,72,0.10);
         border-radius: 16px;
         padding: 8px 10px;
         margin-top: 14px;
         box-shadow: 0 -6px 18px rgba(17,24,39,0.05);
         }
+
 
 
 
@@ -206,13 +208,9 @@ if "page" not in st.session_state:
 
 if "last_page" not in st.session_state:
     st.session_state.last_page = None
-# ---- Balloons on every page change ----
-if "last_page" not in st.session_state:
-    st.session_state.last_page = None
 
-if st.session_state.last_page != st.session_state.page:
-    st.balloons()
-    st.session_state.last_page = st.session_state.page
+
+
 
 
 # flashcard flip states will be created dynamically for letters
@@ -494,6 +492,11 @@ elif st.session_state.page == 5:
             "<div style='text-align:center; opacity:0.8;'>❤️ 🤍 💗 ❤️ 🤍 💗</div>",
             unsafe_allow_html=True
         )
+# trigger balloons after page content has rendered
+if st.session_state.last_page != st.session_state.page:
+    st.balloons()
+    st.session_state.last_page = st.session_state.page
+
 st.markdown('<div class="bottom-nav">', unsafe_allow_html=True)
 
 # Back / Next row
