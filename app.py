@@ -52,7 +52,7 @@ def inject_css():
         .hearts-bg {
           position: fixed;
           inset: 0;
-          z-index: 0;
+          z-index: -1;
           pointer-events: none;
           opacity: 0.16;
           background-image:
